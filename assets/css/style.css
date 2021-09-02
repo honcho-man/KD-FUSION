@@ -1,5 +1,5 @@
 
-body { font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 300; color: #888; line-height: 30px; text-align: center; }
+body { font-family: 'Roboto', sans-serif; font-size: 20px; font-weight: 300; color: #888; line-height: 30px; text-align: center; }
 
 strong { font-weight: 500; }
 
@@ -17,7 +17,9 @@ img { max-width: 100%; }
 ::-moz-selection { background: #f35b3f; color: #fff; text-shadow: none; }
 ::selection { background: #f35b3f; color: #fff; text-shadow: none; }
 
-
+.brand svg {
+	height: 65px;
+}
 /***** Wrapper *****/
 
 .wrapper { display: block; }
@@ -171,7 +173,14 @@ img { max-width: 100%; }
 
 .content { width: 100%; transition: all 0.3s; }
 
-.open-menu { position: fixed; top: 20px; left: 10px; z-index: 997; box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2); }
+.open-menu { 
+	position: fixed;
+	 top: 20px;
+	 left: 10px;
+	 z-index: 997;
+	 box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2);
+	 background: #d8292c;
+ }
 
 .open-menu.btn-customized,
 .open-menu.btn-customized:hover, 
@@ -182,6 +191,7 @@ img { max-width: 100%; }
 .open-menu.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
 .open-menu.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
 	box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2);
+
 }
 
 
@@ -189,7 +199,7 @@ img { max-width: 100%; }
 
 a.btn-customized {
 	margin-left: 5px; margin-right: 5px; padding: .75rem 1.5rem; 
-	background: #f35b3f; border: 0; border-radius: 4px; 
+	background: #d8292c; border: 0; border-radius: 4px; 
 	font-size: 16px; font-weight: 300; color: #fff; box-shadow: none;
 }
 
@@ -289,6 +299,9 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 
 .section-bottom-button { padding-top: 20px; }
 
+.description {
+	font-size: xx-large;
+}
 
 /***** Divider *****/
 

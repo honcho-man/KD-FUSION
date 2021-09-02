@@ -17,7 +17,7 @@ jQuery(document).ready(function() {
 	/*
 	    Sidebar
 	*/
-	$('.sidebar a').on('click', function() {
+	$('.sidebar li').on('click', function(e) {
 		$('.sidebar').removeClass('active');
         $('.overlay').removeClass('active');
 	})
@@ -58,6 +58,8 @@ jQuery(document).ready(function() {
 	});
 	
 	$('.to-top a').on('click', function(e) {
+		$('.sidebar').removeClass('active');
+        $('.overlay').removeClass('active');
 		e.preventDefault();
 		if($(window).scrollTop() != 0) {
 			$('html, body').stop().animate({scrollTop: 0}, 1000);
@@ -89,7 +91,7 @@ jQuery(document).ready(function() {
     /*
         Background slideshow
     */
-	$('.top-content').backstretch("assets/img/backgrounds/Ways-in-Which-Web-Application-Development-is-Changing.png");
+	$('.top-content').backstretch("assets/img/backgrounds/Ways-in-Which-Web-Application-Development-is-Changing.jpg");
     $('.section-4-container').backstretch("assets/img/backgrounds/photo-1529465230221-a0d10e46fcbb.jpeg");
     $('.section-6-container').backstretch("assets/img/backgrounds/how-to-become-a-programmer-in-india.jpeg");
     
