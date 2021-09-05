@@ -1,0 +1,41 @@
+{
+  "name": "kd-fusion",
+  "version": "1.0.0",
+  "description": "kd fusion portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "nodemon": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/honcho-man/KD-FUSION.git"
+  },
+  "keywords": [
+    "kd",
+    "fusion",
+    "web",
+    "design",
+    "agency"
+  ],
+  "author": "oladokun & mike",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/honcho-man/KD-FUSION/issues"
+  },
+  "homepage": "https://github.com/honcho-man/KD-FUSION#readme",
+  "dependencies": {
+    "consolidate": "^0.16.0",
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.3.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "handlebars": "^4.7.7",
+    "http-errors": "^1.8.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.6.1",
+    "nodemon": "^2.0.7",
+    "swig": "^1.4.2"
+  }
+}

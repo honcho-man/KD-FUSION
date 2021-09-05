@@ -91,9 +91,9 @@ jQuery(document).ready(function() {
     /*
         Background slideshow
     */
-	$('.top-content').backstretch("assets/img/backgrounds/Ways-in-Which-Web-Application-Development-is-Changing.jpg");
-    $('.section-4-container').backstretch("assets/img/backgrounds/photo-1529465230221-a0d10e46fcbb.jpeg");
-    $('.section-6-container').backstretch("assets/img/backgrounds/how-to-become-a-programmer-in-india.jpeg");
+	$('.top-content').backstretch("/img/backgrounds/Ways-in-Which-Web-Application-Development-is-Changing.jpg");
+    $('.section-4-container').backstretch("/img/backgrounds/photo-1529465230221-a0d10e46fcbb.jpeg");
+    //$('.section-6-container').backstretch("/img/backgrounds/how-to-become-a-programmer-in-india.jpeg");
     
     /*
 	    Wow
@@ -106,33 +106,45 @@ jQuery(document).ready(function() {
 	$('.section-6-form form input[type="text"], .section-6-form form textarea').on('focus', function() {
 		$('.section-6-form form input[type="text"], .section-6-form form textarea').removeClass('input-error');
 	});
-	$('.section-6-form form').submit(function(e) {
+	$('#contact_form').submit(function(e) {
 		e.preventDefault();
+		var alert = $('.alert')
 	    $('.section-6-form form input[type="text"], .section-6-form form textarea').removeClass('input-error');
 	    var postdata = $('.section-6-form form').serialize();
-	    $.ajax({
-	        type: 'POST',
-	        url: 'assets/contact.php',
-	        data: postdata,
-	        dataType: 'json',
-	        success: function(json) {
-	            if(json.emailMessage != '') {
-	                $('.section-6-form form .contact-email').addClass('input-error');
-	            }
-	            if(json.subjectMessage != '') {
-	                $('.section-6-form form .contact-subject').addClass('input-error');
-	            }
-	            if(json.messageMessage != '') {
-	                $('.section-6-form form textarea').addClass('input-error');
-	            }
-	            if(json.emailMessage == '' && json.subjectMessage == '' && json.messageMessage == '') {
-	                $('.section-6-form form').fadeOut('fast', function() {
-	                    $('.section-6-form').append('<p>Thanks for contacting us! We will get back to you very soon.</p>');
-	                    $('.section-6-container').backstretch("resize");
-	                });
-	            }
-	        }
-	    });
+		$('#form_button').addClass('pending').html('<div class="loading"></div>').attr('disabled', true)
+		$('.section-6-form form').find('input').attr('disabled', true)
+		$('.section-6-form form').find('textarea').attr('disabled', true)
+	    setTimeout(() => {
+			$.ajax({
+				method: 'POST',
+				url: '/contact',
+				data: {
+					name: $('#name_input').val(),
+					email: $('#email_input').val(),
+					phone: $('#telephone_input').val(),
+					subject: $('#subject_input').val(),
+					message: $('#message_input').val()
+				},
+				//dataType: 'json',
+				success: function(json) {
+					console.log('success:'+json)
+					alert.addClass('green-box').removeClass('hide').fadeIn('fast').html(json)
+					$('#form_button').html('<span style="color:white !important">sent<i class="green fa fa-check pl-2"></i></span>')
+					setTimeout(() => {
+						alert.fadeOut('fast').removeClass('green-box');
+					}, 2500);
+				},
+				error: function(res) {
+					alert.removeClass('hide').addClass('fail-box').fadeIn('fast').html(res.responseText)
+					console.log('error:'+res.responseText)
+					$('#form_button').html('<span style="color:white !important">failed<i class="fail fa fa-times pl-2"></i></span>')
+					setTimeout(() => {
+						$('#form_button').removeClass('pending').html('send message').removeAttr('disabled')
+						alert.fadeOut('fast').removeClass('fail-box');
+					}, 1500);
+				}
+			});
+		}, 1500);
 	});
 	
 });
