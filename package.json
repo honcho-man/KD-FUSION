@@ -4,6 +4,7 @@
   "description": "kd fusion portfolio website",
   "main": "index.js",
   "scripts": {
+    "test": "nodemon index.js",
     "nodemon": "nodemon index.js",
     "start": "node index.js"
   },
