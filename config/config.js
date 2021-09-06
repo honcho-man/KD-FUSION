@@ -1,8 +1,8 @@
 const config = {
     production: {        
-        SMTP_USER: 'oladipupooladokun@gmail.com',
-        SMTP_PASS: 'wrjtbtiwhnzloiuf',
-        PORT: '5500'
+        SMTP_USER: process.env.SERVER_USER,
+        SMTP_PASS: process.env.SERVER_PASS,
+        PORT: process.env.PORT
     },
     default: {
         SMTP_USER: process.env.SERVER_USER,
