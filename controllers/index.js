@@ -35,7 +35,7 @@ module.exports = {
                     console.log(err);
                     res.status(500).send('An error occured, please try again later'); // <----- HERE
                 } else {
-                    console.log("Successfully sent email back to help center.");
+                    //console.log("Successfully sent email back to help center.");
                     res.status(200).send('<span>Message sent! We will reach out to you in a jiffy</span><i class="fa fa-smile pl-2"></i>'); // <------------- HERE
                 }
             })
